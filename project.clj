@@ -1,6 +1,6 @@
-(defproject milesian/epi-component "0.1.1-SNAPSHOT"
-  :description "milesian bigbang action to apply AOP to your system components"
-  :url "https://github.com/milesian/epi-component"
+(defproject milesian/aop "0.1.1-SNAPSHOT"
+  :description "milesian bigbang AOP actions"
+  :url "https://github.com/milesian/aop"
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
