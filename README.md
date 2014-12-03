@@ -28,8 +28,10 @@ Take a look at [milesian/BigBang](https://github.com/milesian/BigBang)
 
 ### Matcher implementation
 Here you have a ComponentMatcher implementation, a component oriented matcher that uses the name of the component in the system and match using their protocols 
-```
-;; ...
+```clojure
+
+;;...
+
 (defn function-invocation
   [*fn* this args]
   (let [component-key (:bigbang/key (meta this))
