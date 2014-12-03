@@ -1,6 +1,5 @@
-;; this fns thought to be applied at the component/update-system call that we user component/start
 (ns milesian.aop
-  (:require [defrecord-wrapper.aop :refer (add-extends)]
+  (:require [defrecord-wrapper.aop :refer (add-extends Matcher)]
             [defrecord-wrapper.reflect :as r]
             [com.stuartsierra.component :as component ])
   (:import [defrecord_wrapper.aop  SimpleWrapper ]))
@@ -13,8 +12,6 @@
                                     java.util.Map clojure.lang.ILookup java.lang.Object}
                                   (supers (class instance)))))
 
-
-
 (defn ^{:bigbang/phase :on-start} wrap
   "wrap component using matcher to apply middleware to original fns"
   [c* matcher]
@@ -24,3 +21,15 @@
       (-> (with-meta (SimpleWrapper. c*) (meta c*))
           (merge c*)))
     c*))
+
+
+(defrecord ComponentMatcher [system components fn]
+  Matcher
+  (match [this protocol function-name function-args]
+    (let [protocols (reduce #(into % (r/get-protocols (get system %2))) #{} components)]
+      (when (contains? protocols protocol)
+       fn))))
+
+(defn new-component-matcher [& {:as opts}]
+  (->> opts
+       map->ComponentMatcher))
