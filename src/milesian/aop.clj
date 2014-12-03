@@ -33,3 +33,34 @@
 (defn new-component-matcher [& {:as opts}]
   (->> opts
        map->ComponentMatcher))
+
+
+
+(defrecord Banana [qty])
+(defrecord Grape  [qty])
+(defrecord Orange [qty])
+
+;;; 'subtotal' differs from each fruit.
+
+(defprotocol Fruit
+  (subtotal [item]))
+
+(extend-type Banana
+  Fruit
+  (subtotal [item]
+    (* 158 (:qty item))))
+
+(extend-type Grape
+  Fruit
+  (subtotal [item]
+    (* 178 (:qty item))))
+
+(extend-type Orange
+  Fruit
+  (subtotal [item]
+    (* 98 (:qty item))))
+(defn coupon [item]
+  (reify Fruit
+    (subtotal [_]
+      (int (* 0.75 (subtotal item))))))
+(r/get-specific-supers (coupon (Banana. 3)))
