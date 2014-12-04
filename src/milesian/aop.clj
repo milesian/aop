@@ -3,7 +3,7 @@
             [defrecord-wrapper.reflect :as r]
             [com.stuartsierra.dependency :as dep]
             [com.stuartsierra.component :as component]
-            [clojure.set :refer (intersection)])
+            [clojure.set :refer (difference)])
   (:import [defrecord_wrapper.aop  SimpleWrapper ]))
 
 (defn is-defrecord-instance? [instance]
