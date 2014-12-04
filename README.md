@@ -19,8 +19,7 @@ In this project you can find aop actions and component matchers that are thought
 ```
 
 ## Usage
-
-Take a look at [milesian/BigBang](https://github.com/milesian/BigBang)
+To get how this milesian/aop works on stuartsierra components you should start reading the internal tool used [tangrammer/defrecord-wrapper](https://github.com/tangrammer/defrecord-wrapper) due that we are actually wrapping  defrecords that we define in stuartsierra/component library. And after that,  take a look at [milesian/BigBang](https://github.com/milesian/BigBang) to know how milesian.aop/wrap action is plugged into your system-start process
 
 
 ## Let's match with component perspective 
