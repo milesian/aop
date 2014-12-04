@@ -27,7 +27,7 @@ Take a look at [milesian/BigBang](https://github.com/milesian/BigBang)
 
 Here you have a ComponentMatcher implementation, a component oriented matcher that uses the name of the component in the system and match using their protocols 
 
-```
+```clojure
 
  [milesian.aop/wrap (milesian.aop.matchers/new-component-matcher :system system-map :components [:c] :fn milesian.aop.utils/logging-function-invocation)]
 
