@@ -3,7 +3,6 @@
 ![image](https://dl.dropboxusercontent.com/u/8688858/epicarp.gif)
 
 This clojure library lets you wrap your stuartsierra components in the same way as AOP does
-It's heavily based on [tangrammer/defrecord-wrapper](https://github.com/tangrammer/defrecord-wrapper) 
 
 #### Releases and Dependency Information
 
@@ -24,39 +23,17 @@ It's heavily based on [tangrammer/defrecord-wrapper](https://github.com/tangramm
 Take a look at [milesian/BigBang](https://github.com/milesian/BigBang)
 
 
+### Matchers implementation
 
-
-### Matcher implementation
 Here you have a ComponentMatcher implementation, a component oriented matcher that uses the name of the component in the system and match using their protocols 
-```clojure
-
-;;...
-
-(defn function-invocation
-  [*fn* this args]
-  (let [component-key (:bigbang/key (meta this))
-        [fn-name fn-args]((juxt :function-name :function-args) (meta *fn*))
-        who (:bigbang/who (meta (:wrapper (meta *fn*))))
-        formatted-args (-> (st/replace (str fn-args) #"\[" "")
-                                           (st/replace #"\]" "")
-                                           (st/split #" ")
-                                           (next)
-                                           ((partial st/join " " )))]
-    (format "%s->%s: %s %s" (if-not (nil? who)
-                              (name who)
-                              "REPL"
-                              ) (name component-key) fn-name formatted-args)))
-
-(defn logging-function-invocation
-  [*fn* this & args]
-  (println (function-invocation *fn* this args))
-  (apply *fn* (conj args this)))
-
-;; ...
-
- [milesian.aop/wrap (milesian.aop/new-component-matcher :system system-map :components [:c] :fn logging-function-invocation)]
 
 ```
+
+ [milesian.aop/wrap (milesian.aop.matchers/new-component-matcher :system system-map :components [:c] :fn milesian.aop.utils/logging-function-invocation)]
+
+```
+
+Also you can use stuartsierra/dependency fns to reduce your components to match. Following this idea you can find 2 more matchers [new-component-transitive-dependencies-matcher](https://github.com/milesian/aop/blob/master/src/milesian/aop/matchers.clj#L33) and [new-component-transitive-dependents-matcher](https://github.com/milesian/aop/blob/master/src/milesian/aop/matchers.clj#L40)
 
 ## License
 
