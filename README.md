@@ -9,13 +9,13 @@ In this project you can find aop actions and component matchers that are thought
 
 
 ```clojure
-[milesian/aop "0.1.2-SNAPSHOT"]
+[milesian/aop "0.1.3"]
 ```
 
 ```clojure
 :dependencies [[org.clojure/clojure "1.6.0"]
                [com.stuartsierra/component "0.2.2"]
-               [tangrammer/defrecord-wrapper "0.1.4-SNAPSHOT"]]
+               [tangrammer/defrecord-wrapper "0.1.5"]]
 ```
 
 ## Usage
