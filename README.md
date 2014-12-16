@@ -1,3 +1,5 @@
+![image](https://dl.dropboxusercontent.com/u/8688858/epicarp-small.gif)
+
 # milesian/aop
 
 This clojure library lets you wrap your stuartsierra components in the same way as AOP does.
