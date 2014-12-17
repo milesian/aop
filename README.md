@@ -2,7 +2,7 @@
 
 # milesian/aop
 
-This clojure library lets you wrap your stuartsierra components in the same way as AOP does.
+This clojure library lets you wrap your stuartsierra components with a component perspective as AOP does.
 
 #### Releases and Dependency Information
 
