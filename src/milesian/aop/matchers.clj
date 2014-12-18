@@ -16,11 +16,11 @@
   (->> opts
        map->ComponentMatcher))
 
-(defn- dependency-graph [system]
+(defn dependency-graph [system]
   (component/dependency-graph system (keys system)))
 
-(defn- strict-deps
-  "get only dependencies uniques"
+(defn strict-deps
+  "get only uniques dependencies"
   [system component-key]
   (let [dep-graph (dependency-graph system)
         dependencies (dep/transitive-dependencies dep-graph component-key)]
