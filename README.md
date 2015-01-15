@@ -8,13 +8,13 @@ This clojure library lets you wrap your stuartsierra components with a component
 
 
 ```clojure
-[milesian/aop "0.1.3"]
+[milesian/aop "0.1.4"]
 ```
 
 ```clojure
 :dependencies [[org.clojure/clojure "1.6.0"]
                [com.stuartsierra/component "0.2.2"]
-               [tangrammer/defrecord-wrapper "0.1.5"]]
+               [tangrammer/defrecord-wrapper "0.1.6"]]
 ```
 
 [milesian/aop](https://github.com/milesian/aop)  lets you wrap your stuartsierra/components in the same way as AOP does. 
