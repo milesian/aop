@@ -4,7 +4,7 @@
 (defn extract-data
   [*fn* this args]
   (let [component-key (:bigbang/key (meta this))
-        [fn-name fn-args]((juxt :function-name :function-args) (meta *fn*))
+        [fn-name fn-args protocol]((juxt :function-name :function-args :protocol) (meta *fn*))
         who (:bigbang/who (meta (:wrapper (meta *fn*))))
         formatted-args (-> (st/replace (str fn-args) #"\[" "")
                                            (st/replace #"\]" "")
@@ -14,7 +14,8 @@
     {:who (if-not (nil? who) (name who) "REPL")
      :id (name component-key)
      :fn-name fn-name
-     :fn-args formatted-args}))
+     :fn-args formatted-args
+     :protocol protocol}))
 
 (defn function-invocation
   [*fn* this args]
