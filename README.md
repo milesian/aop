@@ -8,7 +8,7 @@ This clojure library lets you wrap your stuartsierra components with a component
 
 
 ```clojure
-[milesian/aop "0.1.4"]
+[milesian/aop "0.1.5"]
 ```
 
 ```clojure

@@ -1,4 +1,4 @@
-(defproject milesian/aop "0.1.4-SNAPSHOT"
+(defproject milesian/aop "0.1.5-SNAPSHOT"
   :description "milesian bigbang AOP actions"
   :url "https://github.com/milesian/aop"
   :license {:name "MIT License"
